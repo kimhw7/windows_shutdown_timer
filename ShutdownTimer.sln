@@ -5,6 +5,8 @@ VisualStudioVersion = 17.8.34525.116
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ShutdownTimer", "ShutdownTimer\ShutdownTimer.csproj", "{40CEA08D-25E4-4DA9-9FE7-17549F738547}"
 EndProject
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "Setup", "Setup\Setup.vdproj", "{F674B029-B992-4795-9550-E20F61B34EEF}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,8 @@ Global
 		{40CEA08D-25E4-4DA9-9FE7-17549F738547}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{40CEA08D-25E4-4DA9-9FE7-17549F738547}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{40CEA08D-25E4-4DA9-9FE7-17549F738547}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F674B029-B992-4795-9550-E20F61B34EEF}.Debug|Any CPU.ActiveCfg = Debug
+		{F674B029-B992-4795-9550-E20F61B34EEF}.Release|Any CPU.ActiveCfg = Release
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
