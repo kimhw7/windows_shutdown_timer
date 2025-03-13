@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ShutdownTimer));
             this.btnSetShutdown = new System.Windows.Forms.Button();
             this.btnCancelShutdown = new System.Windows.Forms.Button();
             this.txtTimeInput = new System.Windows.Forms.TextBox();
@@ -94,6 +95,7 @@
             this.Controls.Add(this.txtTimeInput);
             this.Controls.Add(this.btnCancelShutdown);
             this.Controls.Add(this.btnSetShutdown);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "ShutdownTimer";
             this.Text = "ShutdownTimer";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.ShutdownTimer_FormClosing);
