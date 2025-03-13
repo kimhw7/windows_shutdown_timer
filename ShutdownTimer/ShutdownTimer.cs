@@ -15,7 +15,6 @@ namespace ShutdownTimer
 {
     public partial class ShutdownTimer : Form
     {
-
         private bool isShutdownScheduled = false;
         private int timeRemaining = 0; // 남은 시간 (초 단위)
 
@@ -96,6 +95,11 @@ namespace ShutdownTimer
                 if (int.TryParse(txtTimeInput.Text, out int minutes) && minutes > 0)
                 {
                     int seconds = minutes * 60; // 분 -> 초 변환
+
+                    // 메모리에 저장
+                    Properties.Settings.Default.shutdownUnixTime = GetCurrentUnixTime() + seconds;
+                    Properties.Settings.Default.Save();
+
                     string command = $"shutdown -s -t {seconds}"; // 종료 예약 명령어 실행
                     txtTimeInput.Text = "";
                     this.ActiveControl = null;
@@ -141,6 +145,12 @@ namespace ShutdownTimer
                 {
                     process.Start();
                     string errorMessage = process.StandardError.ReadToEnd(); // 오류 메시지 읽기
+
+                    if (Properties.Settings.Default.shutdownUnixTime != 0)
+                    {
+                        Properties.Settings.Default.shutdownUnixTime = 0; // 메모리에서 삭제
+                        Properties.Settings.Default.Save();
+                    }
                     process.WaitForExit();
 
                     // 오류 메시지 있을경우
@@ -199,7 +209,45 @@ namespace ShutdownTimer
 
         private void Form1_Load(object sender, EventArgs e)
         {
+            //메모리에 저장된 예약 내역 있다면 타이머 진행 / 없다면 라벨 텍스트 초기화
+            if (Properties.Settings.Default.shutdownUnixTime != 0)
+            {
+                long currentUnixTime = GetCurrentUnixTime();
+                long remainTime = Properties.Settings.Default.shutdownUnixTime - currentUnixTime;
 
+                isShutdownScheduled = true;  // 예약된 상태로 변경
+                timeRemaining = (int)remainTime;  // 남은 시간 설정
+
+                // 타이머 시작
+                countdownTimer.Start();
+
+            }
+            else
+            {
+                labelTimeRemaining.Text = "";
+            }
+        }
+        // 현재 Unix Time을 가져오는 메서드
+        private long GetCurrentUnixTime()
+        {
+            return DateTimeOffset.UtcNow.ToUnixTimeSeconds();
+        }
+
+        private void ShutdownTimer_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            // 저장된 종료 예약이 있을경우 경고
+            if (Properties.Settings.Default.shutdownUnixTime != 0)
+            {
+                DialogResult result = MessageBox.Show("예약된 시스템 종료가 있습니다.\n프로그램을 닫아도 예약된 시스템 종료는 실행됩니다.\n예약을 취소하고 싶다면 '예약취소' 버튼을 클릭하세요.", "창닫기 확인", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                if (result == DialogResult.No)
+                {
+                    e.Cancel = true; // 창 닫힘 방지
+                }
+            }
+            else
+            {
+
+            }
         }
     }
 }
