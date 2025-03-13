@@ -13,7 +13,7 @@ using System.Timers;
 
 namespace ShutdownTimer
 {
-    public partial class Form1 : Form
+    public partial class ShutdownTimer : Form
     {
 
         private bool isShutdownScheduled = false;
@@ -22,7 +22,7 @@ namespace ShutdownTimer
         // 타이머 선언
         private System.Windows.Forms.Timer countdownTimer;
 
-        public Form1()
+        public ShutdownTimer()
         {
             InitializeComponent();
             // 타이머 초기화
@@ -143,10 +143,12 @@ namespace ShutdownTimer
                     string errorMessage = process.StandardError.ReadToEnd(); // 오류 메시지 읽기
                     process.WaitForExit();
 
+                    // 오류 메시지 있을경우
                     if (!string.IsNullOrWhiteSpace(errorMessage))
                     {
                         MessageBox.Show("예약된 종료가 없습니다!", "오류", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     }
+                    // 오류 메시지  없을 경우 3초 동안 취소 알림
                     else
                     {
                         // 타이머 객체 생성 (5000ms = 5초 후)
@@ -191,6 +193,11 @@ namespace ShutdownTimer
         }
 
         private void txtTimeInput_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
         {
 
         }

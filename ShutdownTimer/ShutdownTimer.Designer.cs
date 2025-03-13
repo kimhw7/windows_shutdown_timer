@@ -1,6 +1,6 @@
 ﻿namespace ShutdownTimer
 {
-    partial class Form1
+    partial class ShutdownTimer
     {
         /// <summary>
         /// 필수 디자이너 변수입니다.
@@ -84,7 +84,7 @@
             this.labelTimeRemaining.TabIndex = 4;
             this.labelTimeRemaining.Text = "   ";
             // 
-            // Form1
+            // ShutdownTimer
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -94,8 +94,9 @@
             this.Controls.Add(this.txtTimeInput);
             this.Controls.Add(this.btnCancelShutdown);
             this.Controls.Add(this.btnSetShutdown);
-            this.Name = "Form1";
-            this.Text = "Form1";
+            this.Name = "ShutdownTimer";
+            this.Text = "ShutdownTimer";
+            this.Load += new System.EventHandler(this.Form1_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
