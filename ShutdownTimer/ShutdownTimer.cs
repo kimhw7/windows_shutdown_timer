@@ -249,5 +249,13 @@ namespace ShutdownTimer
 
             }
         }
+
+        private void txtTimeInput_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)  // Enter 키가 눌리면
+            {
+                btnSetShutdown.PerformClick();  // 종료 예약 버튼 클릭 실행
+            }
+        }
     }
 }
