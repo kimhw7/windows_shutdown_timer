@@ -38,9 +38,10 @@
             // 
             // btnSetShutdown
             // 
-            this.btnSetShutdown.Location = new System.Drawing.Point(20, 90);
+            this.btnSetShutdown.Location = new System.Drawing.Point(23, 112);
+            this.btnSetShutdown.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnSetShutdown.Name = "btnSetShutdown";
-            this.btnSetShutdown.Size = new System.Drawing.Size(90, 30);
+            this.btnSetShutdown.Size = new System.Drawing.Size(103, 38);
             this.btnSetShutdown.TabIndex = 0;
             this.btnSetShutdown.Text = "종료예약";
             this.btnSetShutdown.UseVisualStyleBackColor = true;
@@ -48,9 +49,10 @@
             // 
             // btnCancelShutdown
             // 
-            this.btnCancelShutdown.Location = new System.Drawing.Point(130, 90);
+            this.btnCancelShutdown.Location = new System.Drawing.Point(149, 112);
+            this.btnCancelShutdown.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnCancelShutdown.Name = "btnCancelShutdown";
-            this.btnCancelShutdown.Size = new System.Drawing.Size(90, 30);
+            this.btnCancelShutdown.Size = new System.Drawing.Size(103, 38);
             this.btnCancelShutdown.TabIndex = 1;
             this.btnCancelShutdown.Text = "예약취소";
             this.btnCancelShutdown.UseVisualStyleBackColor = true;
@@ -59,9 +61,10 @@
             // txtTimeInput
             // 
             this.txtTimeInput.Font = new System.Drawing.Font("굴림", 9F);
-            this.txtTimeInput.Location = new System.Drawing.Point(120, 44);
+            this.txtTimeInput.Location = new System.Drawing.Point(137, 55);
+            this.txtTimeInput.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtTimeInput.Name = "txtTimeInput";
-            this.txtTimeInput.Size = new System.Drawing.Size(100, 21);
+            this.txtTimeInput.Size = new System.Drawing.Size(114, 25);
             this.txtTimeInput.TabIndex = 2;
             this.txtTimeInput.TextChanged += new System.EventHandler(this.txtTimeInput_TextChanged);
             this.txtTimeInput.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtTimeInput_KeyDown);
@@ -70,9 +73,9 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("굴림", 9F);
-            this.label1.Location = new System.Drawing.Point(20, 50);
+            this.label1.Location = new System.Drawing.Point(23, 62);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(87, 12);
+            this.label1.Size = new System.Drawing.Size(109, 15);
             this.label1.TabIndex = 3;
             this.label1.Text = "예약 시간 (분):";
             this.label1.Click += new System.EventHandler(this.label1_Click);
@@ -80,17 +83,17 @@
             // labelTimeRemaining
             // 
             this.labelTimeRemaining.AutoSize = true;
-            this.labelTimeRemaining.Location = new System.Drawing.Point(20, 20);
+            this.labelTimeRemaining.Location = new System.Drawing.Point(23, 25);
             this.labelTimeRemaining.Name = "labelTimeRemaining";
-            this.labelTimeRemaining.Size = new System.Drawing.Size(17, 12);
+            this.labelTimeRemaining.Size = new System.Drawing.Size(22, 15);
             this.labelTimeRemaining.TabIndex = 4;
             this.labelTimeRemaining.Text = "   ";
             // 
             // ShutdownTimer
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(234, 141);
+            this.ClientSize = new System.Drawing.Size(267, 176);
             this.Controls.Add(this.labelTimeRemaining);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.txtTimeInput);
@@ -98,10 +101,10 @@
             this.Controls.Add(this.btnSetShutdown);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Location = new System.Drawing.Point(500, 350);
+            this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "ShutdownTimer";
             this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
             this.Text = "ShutdownTimer";
-            this.TopMost = true;
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.ShutdownTimer_FormClosing);
             this.Load += new System.EventHandler(this.Form1_Load);
             this.ResumeLayout(false);
