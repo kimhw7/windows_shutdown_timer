@@ -96,8 +96,9 @@
             this.Controls.Add(this.btnCancelShutdown);
             this.Controls.Add(this.btnSetShutdown);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Location = new System.Drawing.Point(500, 350);
             this.Name = "ShutdownTimer";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
             this.Text = "ShutdownTimer";
             this.TopMost = true;
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.ShutdownTimer_FormClosing);
