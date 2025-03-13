@@ -238,7 +238,7 @@ namespace ShutdownTimer
             // 저장된 종료 예약이 있을경우 경고
             if (Properties.Settings.Default.shutdownUnixTime != 0)
             {
-                DialogResult result = MessageBox.Show("예약된 시스템 종료가 있습니다.\n프로그램을 닫아도 예약된 시스템 종료는 실행됩니다.\n예약을 취소하고 싶다면 '예약취소' 버튼을 클릭하세요.", "창닫기 확인", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                DialogResult result = MessageBox.Show("프로그램을 종료 하시겠습니까?\n예약된 시스템 종료가 있습니다.\n프로그램을 닫아도 예약된 시스템 종료는 실행됩니다.\n예약을 취소하고 싶다면 '예약취소' 버튼을 클릭하세요.", "창닫기 확인", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                 if (result == DialogResult.No)
                 {
                     e.Cancel = true; // 창 닫힘 방지
