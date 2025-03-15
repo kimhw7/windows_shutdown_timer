@@ -15,14 +15,14 @@
     {
         "Entry"
         {
-        "MsmKey" = "8:_1D55378BBD139B981441188A40CAAB8B"
-        "OwnerKey" = "8:_D12F89C5227140EC80FE07A8F632A902"
+        "MsmKey" = "8:_036BCC676DAD4775A126FB3A654566B9"
+        "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
-        "MsmKey" = "8:_B9866B57BE4A42B58236DA044118F18C"
-        "OwnerKey" = "8:_UNDEFINED"
+        "MsmKey" = "8:_1D55378BBD139B981441188A40CAAB8B"
+        "OwnerKey" = "8:_D12F89C5227140EC80FE07A8F632A902"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -68,6 +68,14 @@
             "PrerequisitesLocation" = "2:1"
             "Url" = "8:"
             "ComponentsUrl" = "8:"
+                "Items"
+                {
+                    "{EDC2488A-8267-493A-A98E-7D9C3B36CDF3}:.NETFramework,Version=v4.7.2"
+                    {
+                    "Name" = "8:Microsoft .NET Framework 4.7.2 (x86 and x64)"
+                    "ProductCode" = "8:.NETFramework,Version=v4.7.2"
+                    }
+                }
             }
         }
         "Release"
@@ -130,6 +138,26 @@
         }
         "File"
         {
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_036BCC676DAD4775A126FB3A654566B9"
+            {
+            "SourcePath" = "8:..\\power_icon-icons.com_53620.ico"
+            "TargetName" = "8:power_icon-icons.com_53620.ico"
+            "Tag" = "8:"
+            "Folder" = "8:_5247A7EED5104AE695508506468B77C2"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
             "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_1D55378BBD139B981441188A40CAAB8B"
             {
             "AssemblyRegister" = "3:1"
@@ -159,26 +187,6 @@
             "Register" = "3:1"
             "Exclude" = "11:FALSE"
             "IsDependency" = "11:TRUE"
-            "IsolateTo" = "8:"
-            }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_B9866B57BE4A42B58236DA044118F18C"
-            {
-            "SourcePath" = "8:..\\..\\..\\..\\Downloads\\power_icon-icons.com_53620.ico"
-            "TargetName" = "8:power_icon-icons.com_53620.ico"
-            "Tag" = "8:"
-            "Folder" = "8:_5247A7EED5104AE695508506468B77C2"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
         }
@@ -369,7 +377,7 @@
             "Target" = "8:_D12F89C5227140EC80FE07A8F632A902"
             "Folder" = "8:_0505E596E4A4438C8362A72E3D73D2BD"
             "WorkingFolder" = "8:_5247A7EED5104AE695508506468B77C2"
-            "Icon" = "8:_B9866B57BE4A42B58236DA044118F18C"
+            "Icon" = "8:_036BCC676DAD4775A126FB3A654566B9"
             "Feature" = "8:"
             }
         }
@@ -773,7 +781,7 @@
         {
             "{5259A561-127C-4D43-A0A1-72F10C7B3BF8}:_D12F89C5227140EC80FE07A8F632A902"
             {
-            "SourcePath" = "8:..\\ShutdownTimer\\obj\\Release\\ShutdownTimer.exe"
+            "SourcePath" = "8:..\\ShutdownTimer\\obj\\Debug\\ShutdownTimer.exe"
             "TargetName" = "8:"
             "Tag" = "8:"
             "Folder" = "8:_5247A7EED5104AE695508506468B77C2"

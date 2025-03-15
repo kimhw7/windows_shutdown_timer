@@ -10,6 +10,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Timers;
+using System.Management;
 
 namespace ShutdownTimer
 {
@@ -209,6 +210,8 @@ namespace ShutdownTimer
 
         private void Form1_Load(object sender, EventArgs e)
         {
+            ValidateShutdownSchedule(); // 종료 예약 유효성 검사
+
             //메모리에 저장된 예약 내역 있다면 타이머 진행 / 없다면 라벨 텍스트 초기화
             if (Properties.Settings.Default.shutdownUnixTime != 0)
             {
@@ -231,6 +234,53 @@ namespace ShutdownTimer
         private long GetCurrentUnixTime()
         {
             return DateTimeOffset.UtcNow.ToUnixTimeSeconds();
+        }
+
+        // 마지막 부팅 시간을 구하는 매서드
+        private long GetLastBootTime()
+        {
+            try
+            {
+                ManagementObjectSearcher searcher = new ManagementObjectSearcher("SELECT LastBootUpTime FROM Win32_OperatingSystem");
+                foreach (ManagementObject obj in searcher.Get())
+                {
+                    string bootTimeStr = obj["LastBootUpTime"].ToString();
+                    DateTime bootTime = ManagementDateTimeConverter.ToDateTime(bootTimeStr);
+                    return new DateTimeOffset(bootTime).ToUnixTimeSeconds();
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Error getting last boot time: " + ex.Message);
+            }
+
+            return 0; // 오류 발생 시 0 반환
+        }
+
+        private void ValidateShutdownSchedule()
+        {
+            long shutdownTime = Properties.Settings.Default.shutdownUnixTime; // 저장된 종료 예약 시간
+            long currentTime = GetCurrentUnixTime(); // 현재 Unix Time
+            long lastBootTime = GetLastBootTime(); // 현재 PC의 부팅 시간
+            long savedBootTime = Properties.Settings.Default.lastBootTime; // 저장된 부팅 시간
+
+            // 1. 예약된 시간이 현재 시간보다 과거인지 확인
+            if (shutdownTime != 0 && shutdownTime < currentTime)
+            {
+                Properties.Settings.Default.shutdownUnixTime = 0;
+            }
+
+            // 2. 저장된 부팅 시간과 현재 부팅 시간이 다르면 재부팅된 것으로 판단
+            if (savedBootTime != 0 && savedBootTime != lastBootTime)
+            {
+                Properties.Settings.Default.shutdownUnixTime = 0;
+            }
+
+            // 현재 부팅 시간 저장 (다음 실행 시 비교하기 위해)
+            Properties.Settings.Default.lastBootTime = lastBootTime;
+
+            // 변경된 설정 저장
+            Properties.Settings.Default.Save();
         }
 
         private void ShutdownTimer_FormClosing(object sender, FormClosingEventArgs e)
